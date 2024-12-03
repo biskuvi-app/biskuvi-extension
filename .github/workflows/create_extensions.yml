@@ -4,6 +4,8 @@ on:
 jobs:
   pack-extension:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.VERSION }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -17,8 +19,9 @@ jobs:
         with:
           chrome-version: stable
 
+      - id: version
       - name: Set up version
-        run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
+        run: echo "VERSION=$(cat VERSION)" >> $GITHUB_OUTPUT
 
       - name: Pack extension
         run: |
