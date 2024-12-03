@@ -1,0 +1,289 @@
+html {
+    color-scheme: dark;
+    --trTime: 0s; /*set in script*/
+
+    --textLight: #1a1a1a;
+    --bgLight: #fff;
+
+    --textDark: #fff;
+    --bgDark: #161e27;
+
+    --accentColor: #0085ff;
+    --accentColor2: #4da6ff;
+
+    --labelLight: #42576c;
+    --noteColorLight: #5c7a99;
+
+    --labelDark: #aebbc9;
+    --noteColorDark: #858f99;
+    --sliderBgColor: #606066aa;
+
+    --inputDark: #1e2936;
+    --inputDark2: #263544;
+
+    --textLightGrey: #f1f3f5;
+    --inputLightGrey2: #d4dbe2;
+
+    --borderColorLight: #d4dbe2;
+    --borderColorDark: #2e4052;
+
+    --btnColor: #1083fe;
+    --btnColorHover: #0168d5;
+    --btnTextDisabled: #00001188;
+
+    --textLightDisabled: #00001188;
+    --textDarkDisabled: #eeeeff88;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color var(--trTime);
+
+    button {
+        width: 100%;
+        padding: .7rem;
+        font-weight: 600;
+        color: white;
+        background-color: var(--btnColor);
+        border: none;
+        border-radius: 0.4rem;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 1rem;
+
+        &:hover {
+            background-color: var(--btnColorHover);
+        }
+
+        &:disabled, &:hover:disabled {
+            background-color: var(--textLightGrey);
+            color: var(--textLightDisabled);
+        }
+    }
+
+    .container {
+        width: 600px;
+        margin: 0;
+        transition: border-color var(--trTime);
+    }
+
+    a, a:visited {
+        color: var(--accentColor2);
+    }
+
+    h1 {
+        padding: 0;
+        margin: 0;
+        color: var(--accentColor);
+    }
+
+    span {
+        transition: color var(--trTime);
+    }
+
+    .title, .section-title {
+        margin-top: 0;
+        margin-bottom: .5em;
+        transition: color var(--trTime);
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    label {
+        font-size: 80%;
+        font-weight: 600;
+        line-height: 1.75rem;
+        transition: color var(--trTime);
+    }
+
+    input, select {
+        width: 100%;
+        font-size: inherit;
+        padding: .6rem 1rem .6rem 1rem;
+        border-width: 2px;
+        border-style: solid;
+        border-radius: .4rem;
+        box-sizing: border-box;
+        transition: background-color var(--trTime),
+        color var(--trTime), border-color var(--trTime);
+
+        &:focus, &:focus-visible {
+            outline: 3px solid var(--accentColor);
+        }
+
+        &:checked + .slider:before {
+            transform: translateX(14px);
+        }
+    }
+
+    select:disabled {
+        cursor: not-allowed;
+    }
+
+    .status {
+        text-align: center;
+        margin-top: 1rem;
+        height: 2rem;
+    }
+
+    .spacer {
+        transition: border-color var(--trTime);
+    }
+
+    &.light {
+
+        background-color: var(--bgLight);
+        color: var(--textLight);
+
+        .container {
+            border-right: 1px solid var(--borderColorLight);
+            border-left: 1px solid var(--borderColorLight);
+        }
+
+        .spacer {
+            border-top: 1px solid var(--borderColorLight);
+        }
+
+        label {
+            color: var(--labelLight);
+        }
+
+        input, select {
+            background-color: white;
+            border-color: var(--textLightGrey);
+
+            &:disabled {
+                background-color: var(--textLightGrey);
+                border-color: var(--textLightGrey);
+                color: var(--textLightDisabled);
+
+                &:hover {
+                    border-color: var(--textLightGrey);
+                }
+            }
+
+            &:hover {
+                border-color: var(--inputLightGrey2);
+            }
+        }
+
+        input:checked + .slider {
+            background-color: var(--accentColor);
+        }
+
+        .status {
+            color: var(--accentColor);
+        }
+
+
+        .note {
+            color: var(--noteColorLight);
+        }
+    }
+
+    &.dark {
+        background-color: var(--bgDark);
+        color: var(--textDark);
+
+        .container {
+            border-right: 1px solid var(--borderColorDark);
+            border-left: 1px solid var(--borderColorDark);
+        }
+
+        .spacer {
+            border-top: 1px solid var(--borderColorDark);
+        }
+
+        label {
+            color: var(--labelDark);
+        }
+
+        input, select {
+            background-color: var(--inputDark);
+            border-color: var(--inputDark);
+
+            &:disabled {
+                color: var(--textDarkDisabled);
+
+                &:hover {
+                    border-color: var(--inputDark);
+                }
+            }
+
+            &:hover {
+                border-color: var(--inputDark2);
+            }
+        }
+
+        .status {
+            color: var(--accentColor2);
+        }
+
+        input:checked + .slider {
+            background-color: var(--accentColor2);
+        }
+
+        .note {
+            color: var(--noteColorDark);
+        }
+    }
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 32px;
+    height: 18px;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+}
+
+.note {
+    font-style: italic;
+}
+
+.section {
+    padding: 1.5rem;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--sliderBgColor);
+    transition: var(--trTime);
+    border-radius: 18px;
+
+    &:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        transition: var(--trTime);
+        border-radius: 50%;
+    }
+}

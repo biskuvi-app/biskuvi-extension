@@ -1,0 +1,23 @@
+html {
+    --bmActive: #0085ff;
+    --bmError: red;
+}
+
+html.theme--light {
+    --bmNormal: rgb(111, 134, 159);
+    --bmHover: rgb(241, 243, 245);
+}
+
+html.theme--dark {
+    --bmNormal: rgb(111, 134, 159);
+    --bmHover: rgb(20, 27, 35);
+}
+
+html.theme--dim {
+    --bmNormal: rgb(120, 142, 165);
+    --bmHover: rgb(30, 41, 54);
+}
+
+.bm:hover {
+    background-color: var(--bmHover);
+}

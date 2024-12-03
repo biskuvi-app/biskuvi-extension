@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--suppress CssUnusedSymbol -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Biskuvi</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
+    <link href="../assets/css/popup.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <h2 id="title">Biskuvi</h2>
+    <div id="content"></div>
+    <form id="loginForm">
+        <label>
+            <input autocomplete="true" autofocus id="identityInput"
+                   placeholder="handle.bsky.social or did:plc:..." required
+                   type="text">
+        </label>
+        <button id="loginBtn">Login</button>
+    </form>
+    <div id="loggedInActions">
+        <a draggable="false" id="bookmarkLink" rel="noopener noreferrer" target="blank">View
+            bookmarks</a>
+        <br>
+        <br>
+        <a draggable="false" href="#" id="logoutLink">Logout</a>
+        <span class="note"> / </span>
+        <a draggable="false" href="#" id="switchAccLink">Switch Account</a>
+    </div>
+    <div id="status"></div>
+    <div class="action-panel">
+        <a draggable="false" href="options.html" rel="noopener noreferrer" target="blank">Options</a>
+        <div class="toggle-container">
+            <span style="padding-right: 1em">Dark mode</span>
+            <label class="toggle-switch">
+                <input id="darkModeToggle" type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+</div>
+<script src="../scripts/popup.js"></script>
+</body>
+</html>
