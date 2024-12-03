@@ -33,6 +33,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: biskuvi-extension
+          if-no-files-found: error
+          compression-level: 9
           path: |
-            biskuvi-${{ env.VERSION }}.crx
-            biskuvi-${{ env.VERSION }}.zip
+            biskuvi-${{ env.VERSION }}.*
