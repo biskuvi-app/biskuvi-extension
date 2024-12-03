@@ -26,16 +26,17 @@ jobs:
       - name: Pack extension
         run: |
           cd pack && zip -r biskuvi.zip *  && cd ..
-          mv pack/biskuvi.zip biskuvi-${{ env.VERSION }}.zip          
+          mv pack/biskuvi.zip biskuvi-${{ env.VERSION }}.zip
+          sha256sum biskuvi-${{ env.VERSION }}.zip > biskuvi-${{ env.VERSION }}.zip.sha256.txt
           chrome --pack-extension=pack
           mv pack.crx biskuvi-${{ env.VERSION }}.crx
+          sha256sum biskuvi-${{ env.VERSION }}.crx > biskuvi-${{ env.VERSION }}.crx.sha256.txt
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+      - name: Create release
+        uses: softprops/action-gh-release@v2
         with:
-          name: biskuvi-extension
-          if-no-files-found: error
-          compression-level: 9
-          path: |
+          files: |
             biskuvi-${{ env.VERSION }}.crx
+            biskuvi-${{ env.VERSION }}.crx.sha256.txt
             biskuvi-${{ env.VERSION }}.zip
+            biskuvi-${{ env.VERSION }}.zip.sha256.txt
