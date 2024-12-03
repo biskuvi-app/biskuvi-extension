@@ -1,4 +1,4 @@
-name: Pack and Release Extension
+name: Pack extensions
 on:
   workflow_dispatch:
 jobs:
@@ -17,12 +17,10 @@ jobs:
         with:
           chrome-version: stable
 
-      - name: Set up Version
-        run: |
-          VERSION=$(cat path/to/file.txt)
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      - name: Set up version
+        run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
 
-      - name: Pack Extension
+      - name: Pack extension
         run: |
           zip -r biskuvi-${VERSION}.zip pack/*
           chrome --pack-extension=pack
