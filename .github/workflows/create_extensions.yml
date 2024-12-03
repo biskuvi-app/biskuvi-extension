@@ -25,7 +25,8 @@ jobs:
 
       - name: Pack extension
         run: |
-          cd pack && zip -r biskuvi-${{ env.VERSION }}.zip *  && cd ..
+          cd pack && zip -r biskuvi.zip *  && cd ..
+          mv pack/biskuvi.zip biskuvi-${{ env.VERSION }}.zip          
           chrome --pack-extension=pack
           mv pack.crx biskuvi-${{ env.VERSION }}.crx
 
