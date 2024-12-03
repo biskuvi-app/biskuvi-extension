@@ -37,4 +37,5 @@ jobs:
           if-no-files-found: error
           compression-level: 9
           path: |
-            biskuvi-${{ env.VERSION }}.*
+            biskuvi-${{ env.VERSION }}.crx
+            biskuvi-${{ env.VERSION }}.zip
