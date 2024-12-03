@@ -1,0 +1,14 @@
+name: create crx
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: debian-latest
+    steps:
+      - uses: browser-actions/setup-chrome@v1
+      - run: chrome --version
