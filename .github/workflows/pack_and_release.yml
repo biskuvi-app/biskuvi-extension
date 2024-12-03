@@ -1,8 +1,8 @@
-name: Pack extensions
+name: Pack and release
 on:
   workflow_dispatch:
 jobs:
-  pack-extension:
+  pack-and-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
