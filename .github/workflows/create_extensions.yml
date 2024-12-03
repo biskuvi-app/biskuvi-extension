@@ -16,6 +16,7 @@ jobs:
         run: |
           VERSION=$(cat VERSION)
           echo $VERSION
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Set up Chrome
         uses: browser-actions/setup-chrome@v1
@@ -24,18 +25,14 @@ jobs:
 
       - name: Pack extension
         run: |
-          zip -r biskuvi-${VERSION}.zip pack/*
+          cd pack && zip -r biskuvi-${{ env.VERSION }}.zip *  && cd ..
           chrome --pack-extension=pack
-          mv pack.crx biskuvi-${VERSION}.crx
+          mv pack.crx biskuvi-${{ env.VERSION }}.crx
 
-      - name: Upload crx
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: "biskuvi-${{ env.MY_VAR }}.crx"
-          path: "biskuvi-${{ env.MY_VAR }}.crx"
-
-      - name: Upload zip
-        uses: actions/upload-artifact@v4
-        with:
-          name: "biskuvi-${{ env.MY_VAR }}.zip"
-          path: "biskuvi-${{ env.MY_VAR }}.zip"
+          name: biskuvi-extension
+          path: |
+            biskuvi-${{ env.VERSION }}.crx
+            biskuvi-${{ env.VERSION }}.zip
