@@ -9,10 +9,7 @@
     "48": "assets/icon/icon-48.png",
     "128": "assets/icon/icon-128.png"
   },
-  "permissions": [
-    "storage",
-    "webNavigation"
-  ],
+  "permissions": ["storage"],
   "action": {
     "default_popup": "pages/popup.html"
   },
